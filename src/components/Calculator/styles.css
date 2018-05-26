@@ -1,7 +1,6 @@
 .calculator {
   width: 100%;
   height: 100%;
-  background: black;
   display: flex;
   flex-direction: column;
   box-shadow: 0px 0px 20px 0px #aaa;
@@ -17,14 +16,13 @@
 
 .calculator .digit-keys {
   background: #e0e0e7;
-
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
 .calculator-keypad {
-  height: 400px;
+  height: 350px;
   display: flex;
 }
 
@@ -53,9 +51,9 @@
 }
 
 .calculator .function-keys {
-  background: linear-gradient(to bottom, rgba(202,202,204,1) 0%, rgba(196,194,204,1) 100%);
+  background:  rgba(202,202,204,1);
 }
 .calculator .operator-keys {
-  background:  linear-gradient(to bottom, rgba(252,156,23,1) 0%, rgba(247,126,27,1) 100%);
+  background:  rgba(252,156,23,1);
 }
 
