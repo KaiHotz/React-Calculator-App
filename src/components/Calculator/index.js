@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import _ from 'lodash'
-import CalculatorDisplay from './calculatorDisplay'
-import CalculatorKey from './calculatorKey'
-import { CalculatorOperations, NumberKeys } from '../utils'
+import CalculatorDisplay from '../CalculatorDisplay'
+import CalculatorKey from '../CalculatorKey'
+import { CalculatorOperations, DigitKeys } from '../../utils'
 
-import '../App.css'
+import './styles.css'
 
 class Calculator extends Component {
   state = {
@@ -182,7 +182,7 @@ class Calculator extends Component {
             </div>
             <div className="digit-keys">
               {
-                NumberKeys.map(el =>
+                DigitKeys.map(el =>
                   <CalculatorKey
                     key={`key-${el}`}
                     className={`key-${el}`}

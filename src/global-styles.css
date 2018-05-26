@@ -9,3 +9,10 @@ body {
   margin: 0;
   font: 100 14px 'Roboto';
 }
+
+#root {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

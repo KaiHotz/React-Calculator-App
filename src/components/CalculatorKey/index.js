@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import PointTarget from 'react-point'
+import './styles.css'
 
 const calculatorKey = ({ onClick, className, ...props }) => (
   <PointTarget onPoint={onClick}>

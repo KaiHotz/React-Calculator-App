@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import AutoScalingText from './AutoScalingText'
+import AutoScalingText from '../AutoScalingText'
+import './styles.css'
 
 const calculatorDisplay = ({ value, ...props }) => {
   const language = navigator.language || 'en-US'

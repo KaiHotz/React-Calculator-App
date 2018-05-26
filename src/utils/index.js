@@ -26,4 +26,4 @@ export const CalculatorOperations = {
   }
 }
 
-export const NumberKeys = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+export const DigitKeys = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
