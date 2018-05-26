@@ -29,21 +29,26 @@
 .calculator .function-keys .calculator-key {
   font-size: 2em;
 }
+
 .calculator .function-keys .key-multiply {
   line-height: 50px;
 }
+
 .calculator .digit-keys .calculator-key {
   font-size: 2.25em;
 }
+
 .calculator .digit-keys .key-0 {
   width: 160px;
   text-align: left;
   padding-left: 32px;
 }
+
 .calculator .digit-keys .key-dot {
   padding-top: 1em;
   font-size: 0.75em;
 }
+
 .calculator .operator-keys .calculator-key {
   color: white;
   border-right: 0;
@@ -53,6 +58,7 @@
 .calculator .function-keys {
   background:  rgba(202,202,204,1);
 }
+
 .calculator .operator-keys {
   background:  rgba(252,156,23,1);
 }
