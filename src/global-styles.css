@@ -7,7 +7,7 @@ html {
 
 body {
   margin: 0;
-  font: 100 14px 'Lucida Grande', sans-serif;
+  font: 100 14px sans-serif;
 }
 
 #root {
@@ -16,3 +16,4 @@ body {
   align-items: center;
   justify-content: center;
 }
+
