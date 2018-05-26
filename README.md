@@ -8,7 +8,7 @@ There are two methods for getting started with this repo.
 ### Familiar with Git?
 ```
   > git clone git@github.com:KaiHotz/React-Calculator-App.git
-  > cd AirBnB-search
+  > cd React-Calculator-App
   > npm install
   > npm start
   > in your Browser open http://localhost:3000
