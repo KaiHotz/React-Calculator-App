@@ -28,7 +28,7 @@ export const CalculatorOperations = {
   }
 }
 
-export const getFormattedValue = (value) => {
+export const getFormattedValue = value => {
   const language = navigator.language || 'en-US'
 
   let formattedValue = parseFloat(value).toLocaleString(language, {
