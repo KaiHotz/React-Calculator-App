@@ -100,9 +100,13 @@ class Calculator extends Component {
   }
 
   inputDot = () => {
-    const { displayValue } = this.state
-
-    if (!(/\./).test(displayValue)) {
+    const { displayValue, waitingForOperand } = this.state
+    if (waitingForOperand) {
+      this.setState({
+        displayValue: '0.',
+        waitingForOperand: false
+      })
+    } else if (!(/\./).test(displayValue)) {
       this.setState({
         displayValue: displayValue + '.',
         waitingForOperand: false
