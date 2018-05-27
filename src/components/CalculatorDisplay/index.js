@@ -14,7 +14,7 @@ const calculatorDisplay = ({ value, ...props }) => {
 
   if (match) { formattedValue += (/[1-9]/).test(match[0]) ? match[1] : match[0] }
 
-  if (formattedValue.length >= 16) {
+  if (formattedValue.length >= 14) {
     formattedValue = String(parseFloat(value).toExponential())
   }
 
