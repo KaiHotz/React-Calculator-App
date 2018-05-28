@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import _ from 'lodash'
 import CalculatorDisplay from '../CalculatorDisplay'
 import CalculatorKey from '../CalculatorKey'
-import { CalculatorOperations, DigitKeys } from '../../utils'
+import { CalculatorOperations, DigitKeys } from '../../utils/helper'
 
 import './styles.css'
 

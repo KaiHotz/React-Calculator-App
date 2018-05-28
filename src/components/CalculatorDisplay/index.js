@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import AutoScalingText from '../AutoScalingText'
-import { getFormattedValue } from '../../utils'
+import { getFormattedValue } from '../../utils/helper'
 import './styles.css'
 
 const calculatorDisplay = ({ value, ...props }) => (
