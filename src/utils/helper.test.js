@@ -2,6 +2,7 @@ import { getFormattedValue } from './helper'
 
 describe('Format value', () => {
   it('should work', () => {
-    expect(getFormattedValue('5.7')).toBe('5.7')
+    const value = '5.7'
+    expect(getFormattedValue(value)).toBe(value)
   })
 })
