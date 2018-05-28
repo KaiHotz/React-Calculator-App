@@ -35,7 +35,7 @@ Click [here](https://github.com/KaiHotz/React-Calculator-App/archive/master.zip)
   > npm run test
 ```
 
-### To run Tests wit coverage
+### To run Tests with coverage
 ```
   > npm run test:coverage
 ```
