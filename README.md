@@ -23,13 +23,25 @@ Click [here](https://github.com/KaiHotz/React-Calculator-App/archive/master.zip)
   > in your Browser open http://localhost:3000
 ```
 
-#### To run Test
+## Testing
+
+### Resources
+- [Jasmine Matchers](https://github.com/JamieMason/Jasmine-Matchers)
+- [Enzyme](http://airbnb.io/enzyme/)
+- [Jest](https://facebook.github.io/jest/)
+
+### To run Tests
 ```
   > npm run test
 ```
 
+### To run Tests wit coverage
+```
+  > npm run test:coverage
+```
+
 ### To Do
 ```
-  > Add Tests
+  > Add more tests
 ```
 
