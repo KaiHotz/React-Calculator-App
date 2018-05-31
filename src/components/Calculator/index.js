@@ -42,7 +42,8 @@ class Calculator extends Component {
     const newValue = parseFloat(displayValue) * -1
 
     this.setState({
-      displayValue: String(newValue)
+      displayValue: String(newValue),
+      value: newValue
     })
   }
 
