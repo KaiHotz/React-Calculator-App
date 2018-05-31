@@ -23,4 +23,8 @@ describe('Calculator Operations', () => {
   it('should add', () => {
     expect(CalculatorOperations['+'].func(6, 2)).toBe(8)
   })
+
+  it('should return result', () => {
+    expect(CalculatorOperations['='].func(6, 2)).toBe(2)
+  })
 })
