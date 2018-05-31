@@ -14,7 +14,7 @@ class Calculator extends Component {
     waitingForOperand: false
   }
 
-  clearAll () {
+  clearAll = () => {
     this.setState({
       value: null,
       displayValue: '0',
@@ -23,7 +23,7 @@ class Calculator extends Component {
     })
   }
 
-  clearDisplay () {
+  clearDisplay = () => {
     this.setState({
       displayValue: '0'
     })
@@ -37,7 +37,7 @@ class Calculator extends Component {
     })
   }
 
-  toggleSign () {
+  toggleSign = () => {
     const { displayValue } = this.state
     const newValue = parseFloat(displayValue) * -1
 
@@ -46,7 +46,7 @@ class Calculator extends Component {
     })
   }
 
-  inputPercent () {
+  inputPercent = () => {
     const { displayValue } = this.state
     const currentValue = parseFloat(displayValue)
 
@@ -60,7 +60,7 @@ class Calculator extends Component {
     })
   }
 
-  performOperation (nextOperator) {
+  performOperation = nextOperator => () => {
     const { value, displayValue, operator } = this.state
     const inputValue = parseFloat(displayValue)
 
@@ -84,7 +84,7 @@ class Calculator extends Component {
     })
   }
 
-  inputDigit = digit => {
+  inputDigit = digit => () => {
     const { displayValue, waitingForOperand } = this.state
 
     if (waitingForOperand) {
@@ -114,17 +114,15 @@ class Calculator extends Component {
     }
   }
 
-  handleKeyDown = event => {
-    let { key } = event
-
+  handleKeyDown = ({key}) => {
     if (key === 'Enter') { key = '=' }
 
     if ((/\d/).test(key)) {
       event.preventDefault()
-      this.inputDigit(parseInt(key, 10))
+      this.inputDigit(parseInt(key, 10))()
     } else if (key in CalculatorOperations) {
       event.preventDefault()
-      this.performOperation(key)
+      this.performOperation(key)()
     } else if (key === '.') {
       event.preventDefault()
       this.inputDot()
@@ -167,19 +165,19 @@ class Calculator extends Component {
             <div className="function-keys">
               <CalculatorKey
                 className="key-clear"
-                onClick={() => clearDisplay ? this.clearDisplay() : this.clearAll()}
+                onClick={clearDisplay ? this.clearDisplay : this.clearAll}
               >
                 { clearText }
               </CalculatorKey>
               <CalculatorKey
                 className="key-sign"
-                onClick={() => this.toggleSign()}
+                onClick={this.toggleSign}
               >
                 ±
               </CalculatorKey>
               <CalculatorKey
                 className="key-percent"
-                onClick={() => this.inputPercent()}
+                onClick={this.inputPercent}
               >
                 %
               </CalculatorKey>
@@ -190,7 +188,7 @@ class Calculator extends Component {
                   <CalculatorKey
                     key={`key-${el}`}
                     className={`key-${el}`}
-                    onClick={() => this.inputDigit(el)}
+                    onClick={this.inputDigit(el)}
                   >
                     { el }
                   </CalculatorKey>
@@ -210,7 +208,7 @@ class Calculator extends Component {
                 <CalculatorKey
                   key={`key-${value.name}`}
                   className={`key-${value.name}`}
-                  onClick={() => this.performOperation(key)}
+                  onClick={this.performOperation(key)}
                 >
                   { value.symbol }
                 </CalculatorKey>
