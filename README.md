@@ -39,9 +39,3 @@ Click [here](https://github.com/KaiHotz/React-Calculator-App/archive/master.zip)
 ```
   > npm run test:coverage
 ```
-
-### To Do
-```
-  > Add more tests
-```
-
