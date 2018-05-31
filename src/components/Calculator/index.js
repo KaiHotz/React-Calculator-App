@@ -184,13 +184,13 @@ class Calculator extends Component {
             </div>
             <div className="digit-keys">
               {
-                DigitKeys.map(el =>
+                DigitKeys.map(digit =>
                   <CalculatorKey
-                    key={`key-${el}`}
-                    className={`key-${el}`}
-                    onClick={this.inputDigit(el)}
+                    key={`key-${digit}`}
+                    className={`key-${digit}`}
+                    onClick={this.inputDigit(digit)}
                   >
-                    { el }
+                    { digit }
                   </CalculatorKey>
                 )
               }
