@@ -83,4 +83,44 @@ describe('<Calculator />', () => {
 
     expect(wrapper.state().displayValue).toEqual('0')
   })
+
+  it('should toggle the sign correctly', () => {
+    const wrapper = mount(<Calculator />)
+    wrapper.find('.calculator-key.key-2').simulate('click')
+    wrapper.find('.calculator-key.key-sign').simulate('click')
+
+    expect(wrapper.state().displayValue).toEqual('-2')
+  })
+
+  it('should clear the display', () => {
+    const wrapper = mount(<Calculator />)
+    wrapper.find('.calculator-key.key-2').simulate('click')
+    wrapper.find('.calculator-key.key-multiply').simulate('click')
+    wrapper.find('.calculator-key.key-3').simulate('click')
+    wrapper.find('.calculator-key.key-clear').simulate('click')
+
+    expect(wrapper.state()).toEqual({
+      value: 2,
+      displayValue: '0',
+      operator: '*',
+      waitingForOperand: false
+    })
+  })
+
+  it('should clear all', () => {
+    const wrapper = mount(<Calculator />)
+    wrapper.find('.calculator-key.key-2').simulate('click')
+    wrapper.find('.calculator-key.key-multiply').simulate('click')
+    wrapper.find('.calculator-key.key-3').simulate('click')
+    wrapper.find('.calculator-key.key-equals').simulate('click')
+    wrapper.find('.calculator-key.key-clear').simulate('click')
+    wrapper.find('.calculator-key.key-clear').simulate('click')
+
+    expect(wrapper.state()).toEqual({
+      value: null,
+      displayValue: '0',
+      operator: null,
+      waitingForOperand: false
+    })
+  })
 })

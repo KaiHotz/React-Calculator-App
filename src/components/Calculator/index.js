@@ -29,7 +29,7 @@ class Calculator extends Component {
     })
   }
 
-  clearLastChar () {
+  clearLastChar = () => {
     const { displayValue } = this.state
 
     this.setState({
