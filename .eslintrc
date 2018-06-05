@@ -1,7 +1,8 @@
 {
   "root": true,
   "extends": [
-    "standard"
+    "standard",
+    "plugin:react/recommended"
   ],
   "plugins": [
     "jest",
@@ -39,8 +40,6 @@
     ],
     "max-len": 0,
     "no-underscore-dangle": 0,
-    "no-invalid-this": 0,
-    "no-unused-vars": 0,
-    "react/jsx-uses-vars": 2
+    "no-invalid-this": 0
   }
 }
