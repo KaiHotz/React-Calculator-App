@@ -114,7 +114,7 @@ class Calculator extends Component {
     }
   }
 
-  handleKeyDown = ({key}) => {
+  handleKeyDown = ({ key }) => {
     if (key === 'Enter') { key = '=' }
 
     if ((/\d/).test(key)) {

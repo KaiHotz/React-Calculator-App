@@ -4,6 +4,16 @@
     "standard",
     "plugin:react/recommended"
   ],
+  "settings": {
+    "react": {
+      "createClass": "createReactClass",
+      "pragma": "React",
+      "version": "16.6.0"
+    },
+    "propWrapperFunctions": [
+      "forbidExtraProps"
+    ]
+  },
   "plugins": [
     "jest",
     "react"
