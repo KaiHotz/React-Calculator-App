@@ -49,7 +49,6 @@
       "never"
     ],
     "max-len": 0,
-    "no-underscore-dangle": 0,
-    "no-invalid-this": 0
+    "no-underscore-dangle": 0
   }
 }
