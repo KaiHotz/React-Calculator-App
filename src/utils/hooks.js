@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 
-const useScale = ref => {
+export const useScale = ref => {
   const [scale, setScale] = useState(1)
 
   useEffect(() => {
-    const { parentNode } = ref?.current
+    const { parentNode } = ref ?.current
     const availableWidth = parentNode.offsetWidth
-    const actualWidth = ref?.current.offsetWidth
+    const actualWidth = ref ?.current.offsetWidth
     const actualScale = availableWidth / actualWidth
     if (scale === actualScale) { return }
 
