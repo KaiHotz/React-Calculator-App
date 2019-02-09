@@ -1,21 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import PointTarget from 'react-point'
-import './styles.css'
+import './styles.scss'
 
-const calculatorKey = ({ onClick, className, ...props }) => (
+const calculatorKey = ({ onClick, className, children }) => (
   <PointTarget onPoint={onClick}>
-    <button className={`calculator-key ${className}`} {...props} />
+    <button className={`calculator-key ${className}`} type="button">
+      {children}
+    </button>
   </PointTarget>
 )
 
 calculatorKey.propTypes = {
   onClick: PropTypes.func.isRequired,
-  className: PropTypes.string
+  className: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
 }
 
-calculatorKey.defaultPtops = {
-  className: null
+calculatorKey.defaultProps = {
+  className: null,
 }
 
 export default calculatorKey

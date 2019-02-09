@@ -1,22 +1,13 @@
 {
   "root": true,
   "extends": [
-    "standard",
+    "airbnb",
     "plugin:react/recommended"
   ],
-  "settings": {
-    "react": {
-      "createClass": "createReactClass",
-      "pragma": "React",
-      "version": "16.6.0"
-    },
-    "propWrapperFunctions": [
-      "forbidExtraProps"
-    ]
-  },
   "plugins": [
     "jest",
-    "react"
+    "react",
+    "react-hooks"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
@@ -31,13 +22,51 @@
     "browser": true,
     "node": true,
     "es6": true,
-    "jest/globals": true
+    "jest": true
   },
   "rules": {
-    "import/no-unresolved": [
-      2,
+    "react-hooks/rules-of-hooks": "error",
+    "no-restricted-globals": 0,
+    "no-shadow": 0,
+    "no-param-reassign": 0,
+    "no-underscore-dangle": 0,
+    "no-multiple-empty-lines": [
+      "error",
       {
-        "caseSensitive": false
+        "max": 1,
+        "maxBOF": 1
+      }
+    ],
+    "react/forbid-prop-types": 0,
+    "react/destructuring-assignment": 0,
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "import/no-extraneous-dependencies": 0,
+    "import/no-unresolved": 0,
+    "import/extensions": 0,
+    "newline-before-return": "error",
+    "global-require": 0,
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": [
+          "Link"
+        ],
+        "specialLink": [
+          "to"
+        ],
+        "aspects": [
+          "noHref",
+          "invalidHref",
+          "preferButton"
+        ]
       }
     ],
     "arrow-parens": [
@@ -48,7 +77,6 @@
       2,
       "never"
     ],
-    "max-len": 0,
-    "no-underscore-dangle": 0
+    "max-len": 0
   }
 }

@@ -4,18 +4,18 @@ import AutoScalingText from '../AutoScalingText'
 import { getFormattedValue } from '../../utils/helper'
 import './styles.css'
 
-const calculatorDisplay = ({ value, ...props }) => (
-  <div {...props} className="calculator-display">
+const calculatorDisplay = ({ value }) => (
+  <div className="calculator-display">
     <AutoScalingText>{getFormattedValue(value)}</AutoScalingText>
   </div>
 )
 
 calculatorDisplay.propTypes = {
-  value: PropTypes.string
+  value: PropTypes.string,
 }
 
 calculatorDisplay.defaultProps = {
-  value: '0'
+  value: '0',
 }
 
 export default calculatorDisplay

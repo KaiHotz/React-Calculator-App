@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme'
 import CalculatorKey from './index'
 
 const baseProps = {
-  onClick: jest.fn()
+  onClick: jest.fn(),
 }
 
 describe('<Button />', () => {
@@ -23,7 +23,7 @@ describe('<Button />', () => {
   it('should allow custom className', () => {
     const props = {
       ...baseProps,
-      className: 'Custom'
+      className: 'Custom',
     }
     const wrapper = shallow(<CalculatorKey {...props} />)
 

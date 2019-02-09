@@ -1,6 +1,6 @@
 {
   "name": "react-calculator-app",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": " The MacOs calculator app rebuild with React ",
   "main": "index.js",
   "repository": "https://github.com/KaiHotz/React-Calculator-App",
@@ -12,8 +12,9 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "lint": "esw --ext .jsx --ext .js --color",
     "test:coverage": "node scripts/test.js -b --env=jsdom --coverage --forceExit --colors",
+    "lint": "esw --ext .jsx --ext .js --color",
+    "lint:fix": "yarn lint -- --fix",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
   },
@@ -27,6 +28,9 @@
   },
   "devDependencies": {
     "@babel/core": "7.2.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.2",
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@svgr/webpack": "4.1.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.1",
@@ -43,17 +47,15 @@
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.9.1",
     "eslint": "^5.13.0",
+    "eslint-config-airbnb": "^17.1.0",
     "eslint-config-react-app": "^3.0.6",
-    "eslint-config-standard": "^12.0.0",
     "eslint-loader": "2.1.2",
     "eslint-plugin-flowtype": "3.2.1",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jest": "^22.2.2",
-    "eslint-plugin-jsx-a11y": "6.2.1",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-react": "7.12.4",
-    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^1.0.1",
     "eslint-watch": "^4.0.2",
     "file-loader": "3.0.1",
     "fork-ts-checker-webpack-plugin-alt": "0.4.14",
@@ -84,6 +86,9 @@
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "3.6.3"
   },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
   "browserslist": [
     ">0.2%",
     "not dead",
@@ -93,12 +98,15 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/*.d.ts"
+      "!src/**/*.test.ts",
+      "!src/**/*.d.ts",
+      "!src/index.js",
+      "!src/serviceWorker.js"
     ],
     "resolver": "jest-pnp-resolver",
     "setupFiles": [
       "react-app-polyfill/jsdom",
-      "<rootDir>/config/jest/enzymeConfig.js"
+      "<rootDir>config/jest/enzymeConfig.js"
     ],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
@@ -135,6 +143,11 @@
   "babel": {
     "presets": [
       "react-app"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-object-rest-spread",
+      "@babel/plugin-proposal-optional-chaining",
+      "@babel/plugin-syntax-dynamic-import"
     ]
   }
 }

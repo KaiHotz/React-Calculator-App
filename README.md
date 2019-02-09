@@ -9,8 +9,8 @@ There are two methods for getting started with this repo.
 ```
   > git clone git@github.com:KaiHotz/React-Calculator-App.git
   > cd React-Calculator-App
-  > yarn install
-  > yarn start
+  > npm install
+  > npm start
   > in your Browser open http://localhost:3000
 ```
 
@@ -18,8 +18,8 @@ There are two methods for getting started with this repo.
 Click [here](https://github.com/KaiHotz/React-Calculator-App/archive/master.zip) to download the .zip file.  Extract the contents of the zip file, then open your terminal, change to the project directory, and:
 ```
   > cd React-Calculator-App
-  > yarn install
-  > yarn start
+  > npm install
+  > npm start
   > in your Browser open http://localhost:3000
 ```
 
@@ -32,10 +32,10 @@ Click [here](https://github.com/KaiHotz/React-Calculator-App/archive/master.zip)
 
 ### To run Tests
 ```
-  > yarn test
+  > npm test
 ```
 
 ### To run Tests with coverage
 ```
-  > yarn test:coverage
+  > npm test:coverage
 ```

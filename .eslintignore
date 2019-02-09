@@ -2,6 +2,6 @@
 build
 node_modules
 coverage
-scripts
 config
-
+scripts
+serviceWorker.js

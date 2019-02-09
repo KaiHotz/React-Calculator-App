@@ -12,7 +12,7 @@ describe('<AutoScalingText />', () => {
 
   it('should show children', () => {
     const props = {
-      children: 'dwadaw'
+      children: 'dwadaw',
     }
     const wrapper = shallow(<AutoScalingText {...props} />)
 

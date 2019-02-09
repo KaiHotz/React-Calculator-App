@@ -4,28 +4,28 @@ export const CalculatorOperations = {
   '/': {
     name: 'divide',
     symbol: '÷',
-    func: (prevValue, nextValue) => prevValue / nextValue
+    func: (prevValue, nextValue) => prevValue / nextValue,
   },
   '*': {
     name: 'multiply',
     symbol: '×',
-    func: (prevValue, nextValue) => prevValue * nextValue
+    func: (prevValue, nextValue) => prevValue * nextValue,
   },
   '-': {
     name: 'subtract',
     symbol: '−',
-    func: (prevValue, nextValue) => prevValue - nextValue
+    func: (prevValue, nextValue) => prevValue - nextValue,
   },
   '+': {
     name: 'add',
     symbol: '+',
-    func: (prevValue, nextValue) => prevValue + nextValue
+    func: (prevValue, nextValue) => prevValue + nextValue,
   },
   '=': {
     name: 'equals',
     symbol: '=',
-    func: (prevValue, nextValue) => nextValue
-  }
+    func: (prevValue, nextValue) => nextValue,
+  },
 }
 
 export const getFormattedValue = value => {
@@ -33,7 +33,7 @@ export const getFormattedValue = value => {
 
   let formattedValue = parseFloat(value).toLocaleString(language, {
     useGrouping: true,
-    maximumFractionDigits: 6
+    maximumFractionDigits: 6,
   })
 
   const match = value.match(/\.\d*?(0*)$/)

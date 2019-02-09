@@ -1,223 +1,183 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import _ from 'lodash'
 import CalculatorDisplay from '../CalculatorDisplay'
 import CalculatorKey from '../CalculatorKey'
 import { CalculatorOperations, DigitKeys } from '../../utils/helper'
+import './styles.scss'
 
-import './styles.css'
+const Calculator = () => {
+  const [value, setValue] = useState(null)
+  const [displayValue, setDisplayValue] = useState('0')
+  const [operator, setOperator] = useState(null)
+  const [waitingForOperand, setWaitingForOperand] = useState(false)
 
-class Calculator extends Component {
-  state = {
-    value: null,
-    displayValue: '0',
-    operator: null,
-    waitingForOperand: false
+  const inputDigit = digit => () => {
+    if (waitingForOperand) {
+      setDisplayValue(String(digit))
+      setWaitingForOperand(false)
+    } else {
+      setDisplayValue(displayValue === '0' ? String(digit) : displayValue + digit)
+    }
   }
 
-  clearAll = () => {
-    this.setState({
-      value: null,
-      displayValue: '0',
-      operator: null,
-      waitingForOperand: false
-    })
+  const inputDot = () => {
+    if (waitingForOperand) {
+      setDisplayValue('0.')
+      setWaitingForOperand(false)
+    } else if (!(/\./).test(displayValue)) {
+      setDisplayValue(`${displayValue}.`)
+      setWaitingForOperand(false)
+    }
   }
 
-  clearDisplay = () => {
-    this.setState({
-      displayValue: '0'
-    })
-  }
-
-  clearLastChar = () => {
-    const { displayValue } = this.state
-
-    this.setState({
-      displayValue: displayValue.substring(0, displayValue.length - 1) || '0'
-    })
-  }
-
-  toggleSign = () => {
-    const { displayValue } = this.state
-    const newValue = parseFloat(displayValue) * -1
-
-    this.setState({
-      displayValue: String(newValue)
-    })
-  }
-
-  inputPercent = () => {
-    const { displayValue } = this.state
+  const inputPercent = () => {
     const currentValue = parseFloat(displayValue)
 
     if (currentValue === 0) { return }
 
     const fixedDigits = displayValue.replace(/^-?\d*\.?/, '')
     const newValue = parseFloat(displayValue) / 100
-
-    this.setState({
-      displayValue: String(newValue.toFixed(fixedDigits.length + 2))
-    })
+    setDisplayValue(String(newValue.toFixed(fixedDigits.length + 2)))
   }
 
-  performOperation = nextOperator => () => {
-    const { value, displayValue, operator } = this.state
+  const toggleSign = () => {
+    const newValue = parseFloat(displayValue) * -1
+    setDisplayValue(String(newValue))
+  }
+
+  const clearLastChar = () => {
+    setDisplayValue(displayValue.substring(0, displayValue.length - 1) || '0')
+  }
+
+  const clearDisplay = () => {
+    setDisplayValue('0')
+  }
+
+  const clearAll = () => {
+    setValue(null)
+    setDisplayValue('0')
+    setOperator(null)
+    setWaitingForOperand(false)
+  }
+
+  const performOperation = nextOperator => () => {
     const inputValue = parseFloat(displayValue)
 
     if (value == null) {
-      this.setState({
-        value: inputValue
-      })
+      setValue(inputValue)
     } else if (operator) {
       const currentValue = value || 0
       const newValue = CalculatorOperations[operator].func(currentValue, inputValue)
 
-      this.setState({
-        value: newValue,
-        displayValue: String(newValue)
-      })
+      setValue(newValue)
+      setDisplayValue(String(newValue))
     }
 
-    this.setState({
-      waitingForOperand: true,
-      operator: nextOperator
-    })
+    setOperator(nextOperator)
+    setWaitingForOperand(true)
   }
 
-  inputDigit = digit => () => {
-    const { displayValue, waitingForOperand } = this.state
-
-    if (waitingForOperand) {
-      this.setState({
-        displayValue: String(digit),
-        waitingForOperand: false
-      })
-    } else {
-      this.setState({
-        displayValue: displayValue === '0' ? String(digit) : displayValue + digit
-      })
-    }
-  }
-
-  inputDot = () => {
-    const { displayValue, waitingForOperand } = this.state
-    if (waitingForOperand) {
-      this.setState({
-        displayValue: '0.',
-        waitingForOperand: false
-      })
-    } else if (!(/\./).test(displayValue)) {
-      this.setState({
-        displayValue: displayValue + '.',
-        waitingForOperand: false
-      })
-    }
-  }
-
-  handleKeyDown = ({ key }) => {
+  const handleKeyDown = ({ key }) => {
     if (key === 'Enter') { key = '=' }
 
     if ((/\d/).test(key)) {
       event.preventDefault()
-      this.inputDigit(parseInt(key, 10))()
+      inputDigit(parseInt(key, 10))()
     } else if (key in CalculatorOperations) {
       event.preventDefault()
-      this.performOperation(key)()
+      performOperation(key)()
+    } else if (key === ',') {
+      event.preventDefault()
+      inputDot()
     } else if (key === '.') {
       event.preventDefault()
-      this.inputDot()
+      inputDot()
     } else if (key === '%') {
       event.preventDefault()
-      this.inputPercent()
+      inputPercent()
     } else if (key === 'Backspace') {
       event.preventDefault()
-      this.clearLastChar()
+      clearLastChar()
     } else if (key === 'Clear') {
       event.preventDefault()
 
-      if (this.state.displayValue !== '0') {
-        this.clearDisplay()
+      if (displayValue !== '0') {
+        clearDisplay()
       } else {
-        this.clearAll()
+        clearAll()
       }
     }
   }
 
-  componentDidMount () {
-    document.addEventListener('keydown', this.handleKeyDown)
-  }
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown)
 
-  componentWillUnmount () {
-    document.removeEventListener('keydown', this.handleKeyDown)
-  }
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  })
 
-  render () {
-    const { displayValue } = this.state
-
-    const clearDisplay = displayValue !== '0'
-    const clearText = clearDisplay ? 'C' : 'AC'
-
-    return (
-      <div className="calculator">
-        <CalculatorDisplay value={displayValue} />
-        <div className="calculator-keypad">
-          <div className="input-keys">
-            <div className="function-keys">
-              <CalculatorKey
-                className="key-clear"
-                onClick={clearDisplay ? this.clearDisplay : this.clearAll}
-              >
-                { clearText }
-              </CalculatorKey>
-              <CalculatorKey
-                className="key-sign"
-                onClick={this.toggleSign}
-              >
-                ±
-              </CalculatorKey>
-              <CalculatorKey
-                className="key-percent"
-                onClick={this.inputPercent}
-              >
-                %
-              </CalculatorKey>
-            </div>
-            <div className="digit-keys">
-              {
-                DigitKeys.map(digit =>
-                  <CalculatorKey
-                    key={`key-${digit}`}
-                    className={`key-${digit}`}
-                    onClick={this.inputDigit(digit)}
-                  >
-                    { digit }
-                  </CalculatorKey>
-                )
-              }
-              <CalculatorKey
-                className="key-dot"
-                onClick={this.inputDot}
-              >
-                ●
-              </CalculatorKey>
-            </div>
+  return (
+    <div className="calculator">
+      <CalculatorDisplay value={displayValue} />
+      <div className="calculator-keypad">
+        <div className="input-keys">
+          <div className="function-keys">
+            <CalculatorKey
+              className="key-clear"
+              onClick={displayValue !== '0' ? clearDisplay : clearAll}
+            >
+              {displayValue !== '0' ? 'C' : 'AC'}
+            </CalculatorKey>
+            <CalculatorKey
+              className="key-sign"
+              onClick={toggleSign}
+            >
+              ±
+            </CalculatorKey>
+            <CalculatorKey
+              className="key-percent"
+              onClick={inputPercent}
+            >
+              %
+            </CalculatorKey>
           </div>
-          <div className="operator-keys">
+          <div className="digit-keys">
             {
-              _.map(CalculatorOperations, (value, key) =>
+              DigitKeys.map(digit => (
                 <CalculatorKey
-                  key={`key-${value.name}`}
-                  className={`key-${value.name}`}
-                  onClick={this.performOperation(key)}
+                  key={`key-${digit}`}
+                  className={`key-${digit}`}
+                  onClick={inputDigit(digit)}
                 >
-                  { value.symbol }
+                  {digit}
                 </CalculatorKey>
-              )
+              ))
             }
+            <CalculatorKey
+              className="key-dot"
+              onClick={inputDot}
+            >
+              ●
+            </CalculatorKey>
           </div>
         </div>
+        <div className="operator-keys">
+          {
+            _.map(CalculatorOperations, (value, key) => (
+              <CalculatorKey
+                key={`key-${value.name}`}
+                className={`key-${value.name}`}
+                onClick={performOperation(key)}
+              >
+                {value.symbol}
+              </CalculatorKey>
+            ))
+          }
+        </div>
       </div>
-    )
-  }
+    </div>
+  )
 }
+
 export default Calculator
