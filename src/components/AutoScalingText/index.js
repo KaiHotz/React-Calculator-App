@@ -1,6 +1,4 @@
-import React, {
-  useRef,
-} from 'react'
+import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 import { useScale } from '../../utils/hooks'
 import './styles.css'
