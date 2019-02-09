@@ -14,8 +14,8 @@
     "test": "node scripts/test.js",
     "test:coverage": "node scripts/test.js -b --env=jsdom --coverage --forceExit --colors",
     "lint": "esw --ext .jsx --ext .js --color",
-    "lint:fix": "yarn lint -- --fix",
-    "predeploy": "yarn build",
+    "lint:fix": "npm lint -- --fix",
+    "predeploy": "npm build",
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
