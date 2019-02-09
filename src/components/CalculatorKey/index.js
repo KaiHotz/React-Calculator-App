@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import PointTarget from 'react-point'
 import './styles.scss'
 
-const calculatorKey = ({ onClick, className, children }) => (
+const CalculatorKey = ({ onClick, className, children }) => (
   <PointTarget onPoint={onClick}>
     <button className={`calculator-key ${className}`} type="button">
       {children}
@@ -11,7 +11,7 @@ const calculatorKey = ({ onClick, className, children }) => (
   </PointTarget>
 )
 
-calculatorKey.propTypes = {
+CalculatorKey.propTypes = {
   onClick: PropTypes.func.isRequired,
   className: PropTypes.string,
   children: PropTypes.oneOfType([
@@ -20,8 +20,8 @@ calculatorKey.propTypes = {
   ]).isRequired,
 }
 
-calculatorKey.defaultProps = {
+CalculatorKey.defaultProps = {
   className: null,
 }
 
-export default calculatorKey
+export default CalculatorKey
