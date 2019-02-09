@@ -17,11 +17,12 @@ CalculatorKey.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
-  ]).isRequired,
+  ]),
 }
 
 CalculatorKey.defaultProps = {
   className: null,
+  children: null,
 }
 
 export default CalculatorKey
