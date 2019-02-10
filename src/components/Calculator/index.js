@@ -1,112 +1,48 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import _ from 'lodash'
 import CalculatorDisplay from '../CalculatorDisplay'
 import CalculatorKey from '../CalculatorKey'
 import { CalculatorOperations, DigitKeys } from '../../utils/helper'
+import { reducer, initialState } from './reducer'
 import './styles.scss'
 
 const Calculator = () => {
-  const [value, setValue] = useState(null)
-  const [displayValue, setDisplayValue] = useState('0')
-  const [operator, setOperator] = useState(null)
-  const [waitingForOperand, setWaitingForOperand] = useState(false)
-
-  const inputDigit = digit => () => {
-    if (waitingForOperand) {
-      setDisplayValue(String(digit))
-      setWaitingForOperand(false)
-    } else {
-      setDisplayValue(displayValue === '0' ? String(digit) : displayValue + digit)
-    }
-  }
-
-  const inputDot = () => {
-    if (waitingForOperand) {
-      setDisplayValue('0.')
-      setWaitingForOperand(false)
-    } else if (!(/\./).test(displayValue)) {
-      setDisplayValue(`${displayValue}.`)
-      setWaitingForOperand(false)
-    }
-  }
-
-  const inputPercent = () => {
-    const currentValue = parseFloat(displayValue)
-
-    if (currentValue === 0) { return }
-
-    const fixedDigits = displayValue.replace(/^-?\d*\.?/, '')
-    const newValue = parseFloat(displayValue) / 100
-    setDisplayValue(String(newValue.toFixed(fixedDigits.length + 2)))
-  }
-
-  const toggleSign = () => {
-    const newValue = parseFloat(displayValue) * -1
-    setDisplayValue(String(newValue))
-  }
-
-  const clearLastChar = () => {
-    setDisplayValue(displayValue.substring(0, displayValue.length - 1) || '0')
-  }
-
-  const clearDisplay = () => {
-    setDisplayValue('0')
-  }
-
-  const clearAll = () => {
-    setValue(null)
-    setDisplayValue('0')
-    setOperator(null)
-    setWaitingForOperand(false)
-  }
-
-  const performOperation = nextOperator => () => {
-    const inputValue = parseFloat(displayValue)
-
-    if (value == null) {
-      setValue(inputValue)
-    } else if (operator) {
-      const currentValue = value || 0
-      const newValue = CalculatorOperations[operator].func(currentValue, inputValue)
-
-      setValue(newValue)
-      setDisplayValue(String(newValue))
-    }
-
-    setOperator(nextOperator)
-    setWaitingForOperand(true)
-  }
+  const [state, dispatch] = useReducer(reducer, initialState)
 
   const handleKeyDown = ({ key }) => {
     if (key === 'Enter') { key = '=' }
 
     if ((/\d/).test(key)) {
       event.preventDefault()
-      inputDigit(parseInt(key, 10))()
+      dispatch({ type: 'inputDigit', value: parseInt(key, 10) })
     } else if (key in CalculatorOperations) {
       event.preventDefault()
-      performOperation(key)()
+      dispatch({ type: 'performOperation', value: key })
     } else if (key === ',') {
       event.preventDefault()
-      inputDot()
+      dispatch({ type: 'inputDot' })
     } else if (key === '.') {
       event.preventDefault()
-      inputDot()
+      dispatch({ type: 'inputDot' })
     } else if (key === '%') {
       event.preventDefault()
-      inputPercent()
+      dispatch({ type: 'inputPercent' })
     } else if (key === 'Backspace') {
       event.preventDefault()
-      clearLastChar()
+      dispatch({ type: 'clearLastChar' })
     } else if (key === 'Clear') {
       event.preventDefault()
 
-      if (displayValue !== '0') {
-        clearDisplay()
+      if (state.displayValue !== '0') {
+        dispatch({ type: 'clearDisplay' })
       } else {
-        clearAll()
+        dispatch({ type: 'clearAll' })
       }
     }
+  }
+
+  const handleClick = (type, value = null) => () => {
+    dispatch({ type, value })
   }
 
   useEffect(() => {
@@ -119,25 +55,25 @@ const Calculator = () => {
 
   return (
     <div className="calculator">
-      <CalculatorDisplay value={displayValue} />
+      <CalculatorDisplay value={state.displayValue} />
       <div className="calculator-keypad">
         <div className="input-keys">
           <div className="function-keys">
             <CalculatorKey
               className="key-clear"
-              onClick={displayValue !== '0' ? clearDisplay : clearAll}
+              onClick={handleClick(state.displayValue !== '0' ? 'clearDisplay' : 'clearAll')}
             >
-              {displayValue !== '0' ? 'C' : 'AC'}
+              {state.displayValue !== '0' ? 'C' : 'AC'}
             </CalculatorKey>
             <CalculatorKey
               className="key-sign"
-              onClick={toggleSign}
+              onClick={handleClick('toggleSign')}
             >
               ±
             </CalculatorKey>
             <CalculatorKey
               className="key-percent"
-              onClick={inputPercent}
+              onClick={handleClick('inputPercent')}
             >
               %
             </CalculatorKey>
@@ -148,7 +84,7 @@ const Calculator = () => {
                 <CalculatorKey
                   key={`key-${digit}`}
                   className={`key-${digit}`}
-                  onClick={inputDigit(digit)}
+                  onClick={handleClick('inputDigit', digit)}
                 >
                   {digit}
                 </CalculatorKey>
@@ -156,7 +92,7 @@ const Calculator = () => {
             }
             <CalculatorKey
               className="key-dot"
-              onClick={inputDot}
+              onClick={handleClick('inputDot')}
             >
               ●
             </CalculatorKey>
@@ -168,7 +104,7 @@ const Calculator = () => {
               <CalculatorKey
                 key={`key-${value.name}`}
                 className={`key-${value.name}`}
-                onClick={performOperation(key)}
+                onClick={handleClick('performOperation', key)}
               >
                 {value.symbol}
               </CalculatorKey>

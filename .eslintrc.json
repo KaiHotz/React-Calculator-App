@@ -25,6 +25,7 @@
     "jest": true
   },
   "rules": {
+    "consistent-return": 0,
     "react-hooks/rules-of-hooks": "error",
     "no-restricted-globals": 0,
     "no-shadow": 0,
