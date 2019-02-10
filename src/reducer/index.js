@@ -1,4 +1,4 @@
-import { CalculatorOperations } from '../../utils/helper'
+import { CalculatorOperations } from '../utils/helper'
 
 export const initialState = {
   value: null,

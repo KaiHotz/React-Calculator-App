@@ -3,7 +3,7 @@ import _ from 'lodash'
 import CalculatorDisplay from '../CalculatorDisplay'
 import CalculatorKey from '../CalculatorKey'
 import { CalculatorOperations, DigitKeys } from '../../utils/helper'
-import { reducer, initialState } from './reducer'
+import { reducer, initialState } from '../../reducer'
 import './styles.scss'
 
 const Calculator = () => {

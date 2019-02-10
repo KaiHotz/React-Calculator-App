@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
-import { useScale } from '../../utils/hooks'
+import { useScale } from '../../hooks'
 import './styles.css'
 
 const AutoScalingText = ({ children }) => {
