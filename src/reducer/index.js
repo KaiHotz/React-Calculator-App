@@ -7,20 +7,20 @@ export const initialState = {
   waitingForOperand: false,
 }
 
-export const reducer = (state, action) => {
-  switch (action.type) {
+export const reducer = (state, { type, value }) => {
+  switch (type) {
     case 'inputDigit': {
       if (state.waitingForOperand) {
         return {
           ...state,
-          displayValue: String(action.value),
+          displayValue: String(value),
           waitingForOperand: false,
         }
       }
 
       return {
         ...state,
-        displayValue: state.displayValue === '0' ? String(action.value) : state.displayValue + action.value,
+        displayValue: state.displayValue === '0' ? String(value) : state.displayValue + value,
       }
     }
     case 'inputDot': {
@@ -80,7 +80,7 @@ export const reducer = (state, action) => {
         return {
           ...state,
           value: inputValue,
-          operator: action.value,
+          operator: value,
           waitingForOperand: true,
         }
       }
@@ -92,14 +92,14 @@ export const reducer = (state, action) => {
         return {
           value: newValue,
           displayValue: String(newValue),
-          operator: action.value,
+          operator: value,
           waitingForOperand: true,
         }
       }
 
       return {
         ...state,
-        operator: action.value,
+        operator: value,
         waitingForOperand: false,
       }
     }
