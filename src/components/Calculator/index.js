@@ -1,57 +1,17 @@
-import React, { useEffect, useReducer } from 'react'
+import React from 'react'
 import _ from 'lodash'
 import CalculatorDisplay from '../CalculatorDisplay'
 import CalculatorKey from '../CalculatorKey'
 import { CalculatorOperations, DigitKeys } from '../../utils/helper'
-import { reducer, initialState } from '../../reducer'
+import { useCalculator } from '../../hooks'
 import './styles.scss'
 
 const Calculator = () => {
-  const [state, dispatch] = useReducer(reducer, initialState)
-
-  const handleKeyDown = ({ key }) => {
-    if (key === 'Enter') { key = '=' }
-
-    if ((/\d/).test(key)) {
-      event.preventDefault()
-      dispatch({ type: 'inputDigit', value: parseInt(key, 10) })
-    } else if (key in CalculatorOperations) {
-      event.preventDefault()
-      dispatch({ type: 'performOperation', value: key })
-    } else if (key === ',') {
-      event.preventDefault()
-      dispatch({ type: 'inputDot' })
-    } else if (key === '.') {
-      event.preventDefault()
-      dispatch({ type: 'inputDot' })
-    } else if (key === '%') {
-      event.preventDefault()
-      dispatch({ type: 'inputPercent' })
-    } else if (key === 'Backspace') {
-      event.preventDefault()
-      dispatch({ type: 'clearLastChar' })
-    } else if (key === 'Clear') {
-      event.preventDefault()
-
-      if (state.displayValue !== '0') {
-        dispatch({ type: 'clearDisplay' })
-      } else {
-        dispatch({ type: 'clearAll' })
-      }
-    }
-  }
+  const [state, dispatch] = useCalculator()
 
   const handleClick = (type, value = null) => () => {
     dispatch({ type, value })
   }
-
-  useEffect(() => {
-    document.addEventListener('keydown', handleKeyDown)
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown)
-    }
-  })
 
   return (
     <div className="calculator">
