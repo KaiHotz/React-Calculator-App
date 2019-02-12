@@ -7,11 +7,7 @@ import { useCalculator } from '../../hooks'
 import './styles.scss'
 
 const Calculator = () => {
-  const [state, dispatch] = useCalculator()
-
-  const handleClick = (type, value = null) => () => {
-    dispatch({ type, value })
-  }
+  const [state, handleClick] = useCalculator()
 
   return (
     <div className="calculator">

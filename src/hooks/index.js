@@ -6,9 +6,9 @@ export const useScale = ref => {
   const [scale, setScale] = useState(1)
 
   useEffect(() => {
-    const { parentNode } = ref ?.current
+    const { parentNode } = ref?.current
     const availableWidth = parentNode.offsetWidth
-    const actualWidth = ref ?.current.offsetWidth
+    const actualWidth = ref?.current.offsetWidth
     const actualScale = availableWidth / actualWidth
     if (scale === actualScale) { return }
 
@@ -24,6 +24,10 @@ export const useScale = ref => {
 
 export const useCalculator = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
+
+  const handleClick = (type, value = null) => () => {
+    dispatch({ type, value })
+  }
 
   const handleKeyDown = ({ key }) => {
     if (key === 'Enter') { key = '=' }
@@ -65,5 +69,5 @@ export const useCalculator = () => {
     }
   })
 
-  return [state, dispatch]
+  return [state, handleClick]
 }
