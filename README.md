@@ -39,3 +39,9 @@ Click [here](https://github.com/KaiHotz/React-Calculator-App/archive/master.zip)
 ```
   > npm test:coverage
 ```
+
+## Support
+If you like the project and want to support my work, you can buy me a coffee :)
+
+[![paypal](https://img.shields.io/badge/donate-paypal-blue.svg)](https://paypal.me/kaihotz)
+
