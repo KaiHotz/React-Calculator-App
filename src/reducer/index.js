@@ -50,6 +50,11 @@ export const reducer = (state, { type, value }) => {
           displayValue: String(newValue.toFixed(fixedDigits.length + 2)),
         }
       }
+
+      return {
+        ...state,
+        displayValue: String(currentValue),
+      }
     }
       break
     case 'toggleSign': {
