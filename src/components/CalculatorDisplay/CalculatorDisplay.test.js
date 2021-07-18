@@ -1,12 +1,11 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-
-import CalculatorDisplay from './index'
+import {CalculatorDisplay} from './CalculatorDisplay'
 
 describe('<CalculatorDisplay />', () => {
   it('should render', () => {
     const wrapper = shallow(<CalculatorDisplay />)
 
-    expect(wrapper).toBeDefined()
+    expect(wrapper).toMatchSnapshot()
   })
 })
