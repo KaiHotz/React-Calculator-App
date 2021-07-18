@@ -1,13 +1,24 @@
 {
-  "main.css": "/React-Calculator-App/static/css/main.e0fdebd8.chunk.css",
-  "main.js": "/React-Calculator-App/static/js/main.85efe07f.chunk.js",
-  "main.js.map": "/React-Calculator-App/static/js/main.85efe07f.chunk.js.map",
-  "runtime~main.js": "/React-Calculator-App/static/js/runtime~main.11d7cebf.js",
-  "runtime~main.js.map": "/React-Calculator-App/static/js/runtime~main.11d7cebf.js.map",
-  "static/js/2.c7b98c7a.chunk.js": "/React-Calculator-App/static/js/2.c7b98c7a.chunk.js",
-  "static/js/2.c7b98c7a.chunk.js.map": "/React-Calculator-App/static/js/2.c7b98c7a.chunk.js.map",
-  "index.html": "/React-Calculator-App/index.html",
-  "precache-manifest.63332102d055bfb683ffabcbf44e6691.js": "/React-Calculator-App/precache-manifest.63332102d055bfb683ffabcbf44e6691.js",
-  "service-worker.js": "/React-Calculator-App/service-worker.js",
-  "static/css/main.e0fdebd8.chunk.css.map": "/React-Calculator-App/static/css/main.e0fdebd8.chunk.css.map"
+  "files": {
+    "main.css": "/React-Calculator-App/static/css/main.bd6916f7.chunk.css",
+    "main.js": "/React-Calculator-App/static/js/main.3dccc3a0.chunk.js",
+    "main.js.map": "/React-Calculator-App/static/js/main.3dccc3a0.chunk.js.map",
+    "runtime-main.js": "/React-Calculator-App/static/js/runtime-main.b103ff89.js",
+    "runtime-main.js.map": "/React-Calculator-App/static/js/runtime-main.b103ff89.js.map",
+    "static/js/2.eecb8f2a.chunk.js": "/React-Calculator-App/static/js/2.eecb8f2a.chunk.js",
+    "static/js/2.eecb8f2a.chunk.js.map": "/React-Calculator-App/static/js/2.eecb8f2a.chunk.js.map",
+    "static/js/3.49a8c5a1.chunk.js": "/React-Calculator-App/static/js/3.49a8c5a1.chunk.js",
+    "static/js/3.49a8c5a1.chunk.js.map": "/React-Calculator-App/static/js/3.49a8c5a1.chunk.js.map",
+    "index.html": "/React-Calculator-App/index.html",
+    "service-worker.js": "/React-Calculator-App/service-worker.js",
+    "service-worker.js.map": "/React-Calculator-App/service-worker.js.map",
+    "static/css/main.bd6916f7.chunk.css.map": "/React-Calculator-App/static/css/main.bd6916f7.chunk.css.map",
+    "static/js/2.eecb8f2a.chunk.js.LICENSE.txt": "/React-Calculator-App/static/js/2.eecb8f2a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b103ff89.js",
+    "static/js/2.eecb8f2a.chunk.js",
+    "static/css/main.bd6916f7.chunk.css",
+    "static/js/main.3dccc3a0.chunk.js"
+  ]
 }
