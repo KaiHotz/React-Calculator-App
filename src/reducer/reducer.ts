@@ -129,7 +129,7 @@ export const calculatorReducer = (
 
         return {
           value: newValue,
-          displayValue: String(newValue),
+          displayValue: `${newValue}`,
           operator: action.payload,
           waitingForOperand: true,
         };
