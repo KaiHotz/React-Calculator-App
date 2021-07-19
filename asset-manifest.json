@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/React-Calculator-App/static/css/main.19286a8e.chunk.css",
-    "main.js": "/React-Calculator-App/static/js/main.4b7e7c0a.chunk.js",
-    "main.js.map": "/React-Calculator-App/static/js/main.4b7e7c0a.chunk.js.map",
+    "main.css": "/React-Calculator-App/static/css/main.bd6916f7.chunk.css",
+    "main.js": "/React-Calculator-App/static/js/main.6fbb4680.chunk.js",
+    "main.js.map": "/React-Calculator-App/static/js/main.6fbb4680.chunk.js.map",
     "runtime-main.js": "/React-Calculator-App/static/js/runtime-main.b103ff89.js",
     "runtime-main.js.map": "/React-Calculator-App/static/js/runtime-main.b103ff89.js.map",
     "static/js/2.0e2f1ba8.chunk.js": "/React-Calculator-App/static/js/2.0e2f1ba8.chunk.js",
@@ -12,13 +12,13 @@
     "index.html": "/React-Calculator-App/index.html",
     "service-worker.js": "/React-Calculator-App/service-worker.js",
     "service-worker.js.map": "/React-Calculator-App/service-worker.js.map",
-    "static/css/main.19286a8e.chunk.css.map": "/React-Calculator-App/static/css/main.19286a8e.chunk.css.map",
+    "static/css/main.bd6916f7.chunk.css.map": "/React-Calculator-App/static/css/main.bd6916f7.chunk.css.map",
     "static/js/2.0e2f1ba8.chunk.js.LICENSE.txt": "/React-Calculator-App/static/js/2.0e2f1ba8.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b103ff89.js",
     "static/js/2.0e2f1ba8.chunk.js",
-    "static/css/main.19286a8e.chunk.css",
-    "static/js/main.4b7e7c0a.chunk.js"
+    "static/css/main.bd6916f7.chunk.css",
+    "static/js/main.6fbb4680.chunk.js"
   ]
 }
