@@ -33,7 +33,12 @@ export const Calculator = () => {
                 keyValue={digit}
               />
             ))}
-            <CalculatorKey className="key-dot" onClick={() => handleClick(EInputTypes.inputDot)} keyValue="●" />
+            <CalculatorKey
+              className="key-dot"
+              onClick={() => handleClick(EInputTypes.inputDot)}
+              keyValue="●"
+              disabled={state.displayValue.includes('.')}
+            />
           </div>
         </div>
         <div className="operator-keys">

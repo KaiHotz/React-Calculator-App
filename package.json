@@ -1,6 +1,6 @@
 {
   "name": "react-calculator-app",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": " The MacOs calculator app rebuild with React ",
   "main": "index.js",
   "repository": "https://github.com/KaiHotz/React-Calculator-App",
