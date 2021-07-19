@@ -37,14 +37,20 @@ export const Calculator = () => {
           </div>
         </div>
         <div className="operator-keys">
-          {map(calculatorOperations, (value, key) => (
-            <CalculatorKey
-              key={`key-${value.name}`}
-              className={`key-${value.name}`}
-              onClick={() => handleClick(EInputTypes.performOperation, key)}
-              keyValue={value.symbol}
-            />
-          ))}
+          {map(calculatorOperations, (value, key) => {
+            if (value.show) {
+              return (
+                <CalculatorKey
+                  key={`key-${value.name}`}
+                  className={`key-${value.name}`}
+                  onClick={() => handleClick(EInputTypes.performOperation, key)}
+                  keyValue={value.symbol}
+                />
+              );
+            }
+
+            return null;
+          })}
         </div>
       </div>
     </div>

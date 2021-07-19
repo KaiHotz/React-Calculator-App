@@ -6,31 +6,37 @@ export const calculatorOperations: CalculatorOperations = {
   '/': {
     name: 'divide',
     symbol: '÷',
+    show: true,
     func: (prevValue: number, nextValue: number) => prevValue / nextValue,
   },
   '*': {
     name: 'multiply',
     symbol: '×',
+    show: true,
     func: (prevValue: number, nextValue: number) => prevValue * nextValue,
   },
   '-': {
     name: 'subtract',
     symbol: '−',
+    show: true,
     func: (prevValue: number, nextValue: number) => prevValue - nextValue,
   },
   '+': {
     name: 'add',
     symbol: '+',
+    show: true,
     func: (prevValue: number, nextValue: number) => prevValue + nextValue,
   },
   '=': {
     name: 'equals',
     symbol: '=',
+    show: true,
     func: (_prevValue: number, nextValue: number) => nextValue,
   },
   'Enter': {
     name: 'enter',
     symbol: '=',
+    show: false,
     func: (_prevValue: number, nextValue: number) => nextValue,
   },
 };

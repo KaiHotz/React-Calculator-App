@@ -2,13 +2,22 @@ export type Digits = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '0';
 export type OperactionKeys = '/' | '*' | '-' | '+' | '=' | 'Enter';
 export type OperationNames = 'divide' | 'multiply' | 'subtract' | 'add' | 'equals' | 'enter';
 export type OperationSymbols = '÷' | '×' | '−' | '+' | '=';
+export interface CalculatorValues {
+  name: OperationNames;
+  symbol: OperationSymbols;
+  show: boolean;
+  func: (prevValue: number, nextValue: number) => number;
+}
+
+export interface ICalculaterState {
+  value: number | null;
+  displayValue: string;
+  operator: string | number | null;
+  waitingForOperand: boolean;
+}
 
 export type CalculatorOperations = {
-  [key in OperactionKeys]: {
-    name: OperationNames;
-    symbol: OperationSymbols;
-    func: (prevValue: number, nextValue: number) => number;
-  };
+  [key in OperactionKeys]: CalculatorValues;
 };
 
 export enum EInputTypes {
@@ -20,11 +29,4 @@ export enum EInputTypes {
   clearDisplay = 'clearDisplay',
   performOperation = 'performOperation',
   clearAll = 'clearAll',
-}
-
-export interface ICalculaterState {
-  value: number | null;
-  displayValue: string;
-  operator: string | number | null;
-  waitingForOperand: boolean;
 }
