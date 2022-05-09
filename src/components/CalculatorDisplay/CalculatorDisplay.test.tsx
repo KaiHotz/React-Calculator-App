@@ -1,11 +1,10 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import { CalculatorDisplay } from './CalculatorDisplay';
 
 describe('<CalculatorDisplay />', () => {
   it('should render', () => {
-    const wrapper = shallow(<CalculatorDisplay />);
-
-    expect(wrapper).toMatchSnapshot();
+    render(<CalculatorDisplay value="111" />);
+    expect(screen.getByText(/111/i)).toBeInTheDocument();
   });
 });

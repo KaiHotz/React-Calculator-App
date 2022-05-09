@@ -24,8 +24,13 @@ export const CalculatorDisplay: FC<ICalculatorDisplayProps> = ({ value = '0' }) 
   });
 
   return (
-    <div className="calculator-display" ref={parentRef}>
-      <div className="calculator-display__auto-scaling" style={{ transform: `scale(${scale},${scale})` }} ref={innerRef}>
+    <div className="calculator-display" ref={parentRef} data-testid="calculator-display">
+      <div
+        className="calculator-display__auto-scaling"
+        style={{ transform: `scale(${scale},${scale})` }}
+        ref={innerRef}
+        data-testid="calculator-display-inner"
+      >
         {getFormattedValue(value)}
       </div>
     </div>

@@ -26,9 +26,8 @@ Click [here](https://github.com/KaiHotz/React-Calculator-App/archive/master.zip)
 ## Testing
 
 ### Resources
-- [Jasmine Matchers](https://github.com/JamieMason/Jasmine-Matchers)
-- [Enzyme](http://airbnb.io/enzyme/)
 - [Jest](https://facebook.github.io/jest/)
+- [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro/)
 
 ### To run Tests
 ```
@@ -39,9 +38,3 @@ Click [here](https://github.com/KaiHotz/React-Calculator-App/archive/master.zip)
 ```
   > npm test:coverage
 ```
-
-## Support
-If you like the project and want to support my work, you can buy me a coffee :)
-
-[![paypal](https://img.shields.io/badge/donate-paypal-blue.svg)](https://paypal.me/kaihotz)
-

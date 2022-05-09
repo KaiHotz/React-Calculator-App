@@ -11,7 +11,7 @@ export const Calculator = () => {
   const { state, handleClick } = useCalculator();
 
   return (
-    <div className="calculator">
+    <div className="calculator" data-testid="react-mac-calculator">
       <CalculatorDisplay value={state.displayValue} />
       <div className="calculator-keypad">
         <div className="input-keys">

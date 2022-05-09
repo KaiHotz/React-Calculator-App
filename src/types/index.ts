@@ -1,7 +1,7 @@
 export type Digits = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '0';
 export type OperactionKeys = '/' | '*' | '-' | '+' | '=' | 'Enter';
 export type OperationNames = 'divide' | 'multiply' | 'subtract' | 'add' | 'equals' | 'enter';
-export type OperationSymbols = '÷' | '×' | '−' | '+' | '=';
+export type OperationSymbols = '÷' | 'x' | '-' | '+' | '=';
 export interface CalculatorValues {
   name: OperationNames;
   symbol: OperationSymbols;

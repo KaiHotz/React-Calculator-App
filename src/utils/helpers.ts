@@ -11,13 +11,13 @@ export const calculatorOperations: CalculatorOperations = {
   },
   '*': {
     name: 'multiply',
-    symbol: '×',
+    symbol: 'x',
     show: true,
     func: (prevValue: number, nextValue: number) => prevValue * nextValue,
   },
   '-': {
     name: 'subtract',
-    symbol: '−',
+    symbol: '-',
     show: true,
     func: (prevValue: number, nextValue: number) => prevValue - nextValue,
   },
