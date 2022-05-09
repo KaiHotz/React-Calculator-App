@@ -87,15 +87,12 @@
     "typescript": "^4.6.4",
     "yarn-audit-fix": "^9.3.1"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not op_mini all"
-  ]
+  ],
+  "resolutions": {
+    "nth-check": "^2.0.1"
+  }
 }
