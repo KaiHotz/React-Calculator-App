@@ -1,24 +1,16 @@
 {
   "files": {
-    "main.css": "/React-Calculator-App/static/css/main.53123dff.chunk.css",
-    "main.js": "/React-Calculator-App/static/js/main.8c1b23e6.chunk.js",
-    "main.js.map": "/React-Calculator-App/static/js/main.8c1b23e6.chunk.js.map",
-    "runtime-main.js": "/React-Calculator-App/static/js/runtime-main.fefb5b08.js",
-    "runtime-main.js.map": "/React-Calculator-App/static/js/runtime-main.fefb5b08.js.map",
-    "static/js/2.b86a2536.chunk.js": "/React-Calculator-App/static/js/2.b86a2536.chunk.js",
-    "static/js/2.b86a2536.chunk.js.map": "/React-Calculator-App/static/js/2.b86a2536.chunk.js.map",
-    "static/js/3.42594840.chunk.js": "/React-Calculator-App/static/js/3.42594840.chunk.js",
-    "static/js/3.42594840.chunk.js.map": "/React-Calculator-App/static/js/3.42594840.chunk.js.map",
-    "index.html": "/React-Calculator-App/index.html",
+    "main.css": "/React-Calculator-App/static/css/main.f4a441be.css",
+    "main.js": "/React-Calculator-App/static/js/main.4b5e0268.js",
+    "static/js/787.20a0c589.chunk.js": "/React-Calculator-App/static/js/787.20a0c589.chunk.js",
     "service-worker.js": "/React-Calculator-App/service-worker.js",
-    "service-worker.js.map": "/React-Calculator-App/service-worker.js.map",
-    "static/css/main.53123dff.chunk.css.map": "/React-Calculator-App/static/css/main.53123dff.chunk.css.map",
-    "static/js/2.b86a2536.chunk.js.LICENSE.txt": "/React-Calculator-App/static/js/2.b86a2536.chunk.js.LICENSE.txt"
+    "index.html": "/React-Calculator-App/index.html",
+    "main.f4a441be.css.map": "/React-Calculator-App/static/css/main.f4a441be.css.map",
+    "main.4b5e0268.js.map": "/React-Calculator-App/static/js/main.4b5e0268.js.map",
+    "787.20a0c589.chunk.js.map": "/React-Calculator-App/static/js/787.20a0c589.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.fefb5b08.js",
-    "static/js/2.b86a2536.chunk.js",
-    "static/css/main.53123dff.chunk.css",
-    "static/js/main.8c1b23e6.chunk.js"
+    "static/css/main.f4a441be.css",
+    "static/js/main.4b5e0268.js"
   ]
 }
