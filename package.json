@@ -9,8 +9,8 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "tsc && rimraf dist && vite build",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0 && yarn stylelint",
+    "build": "tsc && vite build",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "yarn run eslint:fix && yarn run stylelint:fix",
     "stylelint": "stylelint \"**/*.scss\"",
     "stylelint:fix": "stylelint \"**/*.scss\" --fix",
