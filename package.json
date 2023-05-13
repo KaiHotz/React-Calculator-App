@@ -9,7 +9,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && rimraf dist && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0 && yarn stylelint",
     "lint:fix": "yarn run eslint:fix && yarn run stylelint:fix",
     "stylelint": "stylelint \"**/*.scss\"",
@@ -17,7 +17,7 @@
     "check-types": "tsc",
     "ci": "yarn lint && yarn test --watch=false",
     "test": "vitest",
-    "preview": "vite preview",
+    "preview": "vite preview --port 8080",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d dist",
     "audit:fix": "npx yarn-audit-fix"
@@ -51,6 +51,7 @@
     "postcss": "^8.4.23",
     "postcss-scss": "^4.0.6",
     "prettier": "^2.8.8",
+    "rimraf": "^5.0.0",
     "sass": "^1.62.1",
     "stylelint": "^15.6.1",
     "stylelint-prettier": "^3.0.0",
