@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState, useEffect } from 'react';
+import { FC, useRef, useState, useEffect } from 'react';
 import { getFormattedValue } from '../../utils/helpers';
 import './CalculatorDisplay.scss';
 

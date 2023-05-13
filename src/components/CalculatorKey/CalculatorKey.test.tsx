@@ -1,9 +1,9 @@
-import React from 'react';
+import { vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { CalculatorKey } from './CalculatorKey';
 
 const baseProps = {
-  onClick: jest.fn(),
+  onClick: vi.fn(),
   keyValue: '1',
 };
 
