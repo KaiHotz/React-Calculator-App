@@ -9,32 +9,27 @@ There are two methods for getting started with this repo.
 ```
   > git clone git@github.com:KaiHotz/React-Calculator-App.git
   > cd React-Calculator-App
-  > npm install
-  > npm start
-  > in your Browser open http://localhost:3000
+  > yarn install
+  > yarn dev
+  > follow the instructions
 ```
 
 ### Not Familiar with Git?
 Click [here](https://github.com/KaiHotz/React-Calculator-App/archive/master.zip) to download the .zip file.  Extract the contents of the zip file, then open your terminal, change to the project directory, and:
 ```
   > cd React-Calculator-App
-  > npm install
-  > npm start
-  > in your Browser open http://localhost:3000
+  > yarn install
+  > yarn dev
+  > follow the instructions
 ```
 
 ## Testing
 
 ### Resources
-- [Jest](https://facebook.github.io/jest/)
 - [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro/)
 
 ### To run Tests
 ```
-  > npm test
+  > yarn test
 ```
 
-### To run Tests with coverage
-```
-  > npm test:coverage
-```
