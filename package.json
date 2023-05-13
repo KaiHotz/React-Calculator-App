@@ -19,7 +19,7 @@
     "test": "vitest",
     "preview": "vite preview",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "audit:fix": "npx yarn-audit-fix"
   },
   "dependencies": {
