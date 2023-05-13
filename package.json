@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0 && yarn stylelint",
     "lint:fix": "yarn run eslint:fix && yarn run stylelint:fix",
     "stylelint": "stylelint \"**/*.scss\"",
     "stylelint:fix": "stylelint \"**/*.scss\" --fix",
@@ -49,6 +49,7 @@
     "gh-pages": "^5.0.0",
     "jsdom": "^22.0.0",
     "postcss": "^8.4.23",
+    "postcss-scss": "^4.0.6",
     "prettier": "^2.8.8",
     "sass": "^1.62.1",
     "stylelint": "^15.6.1",
