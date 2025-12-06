@@ -1,4 +1,4 @@
-import { Digits, CalculatorOperations } from '../types';
+import type { CalculatorOperations, Digits } from '../types';
 
 export const digitKeys: Digits[] = ['7', '8', '9', '4', '5', '6', '1', '2', '3', '0'];
 

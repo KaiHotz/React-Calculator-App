@@ -1,4 +1,6 @@
+import { type FC } from 'react';
 import map from 'lodash.map';
+
 import { EInputTypes } from '../../types';
 import { useCalculator } from '../../hooks/useCalculator';
 import { calculatorOperations, digitKeys } from '../../utils/helpers';
@@ -6,7 +8,7 @@ import { CalculatorDisplay } from '../CalculatorDisplay';
 import { CalculatorKey } from '../CalculatorKey';
 import './Calculator.scss';
 
-export const Calculator = () => {
+export const Calculator: FC = () => {
   const { state, handleClick } = useCalculator();
 
   return (
