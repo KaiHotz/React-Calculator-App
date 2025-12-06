@@ -34,11 +34,11 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 24
-          cache: 'npm'
+          cache: 'yarn'
       - name: Install dependencies
-        run: npm install
+        run: yarn install
       - name: Build
-        run: npm run build
+        run: yarn build
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
