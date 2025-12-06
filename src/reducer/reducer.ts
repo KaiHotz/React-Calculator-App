@@ -1,5 +1,5 @@
 import { calculatorOperations } from '../utils/helpers';
-import { ICalculaterState, EInputTypes, OperactionKeys } from '../types';
+import { EInputTypes, type ICalculaterState, type OperactionKeys } from '../types';
 
 export interface IInputDigit {
   type: EInputTypes.inputDigit;

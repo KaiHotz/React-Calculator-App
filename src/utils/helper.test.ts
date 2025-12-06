@@ -1,4 +1,6 @@
-import { getFormattedValue, calculatorOperations } from './helpers';
+import { describe, expect, it } from 'vitest';
+
+import { calculatorOperations, getFormattedValue } from './helpers';
 
 describe('Format value', () => {
   it('should work', () => {
